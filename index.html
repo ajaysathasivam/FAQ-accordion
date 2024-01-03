@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title> FAQ accordion</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- - White: hsl(0, 0%, 100%)
+- Light pink: hsl(275, 100%, 97%)
+- Grayish purple: hsl(292, 16%, 49%)
+- Dark purple: hsl(292, 42%, 14%) 
+- font-family: 'Figtree', sans-serif;
+font-family: 'Work Sans', sans-serif;
+
+-->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: hsl(275, 100%, 97%);
+        font-family: "Work Sans", sans-serif;
+        display: flex;
+        justify-content: center;
+      }
+      h3{
+        color:hsl(292, 42%, 14%) ;
+      }
+      p{
+        color: hsl(292, 16%, 49%);
+        font-size: 16px;
+        margin: 30px 0;
+        line-height: 25px;
+      }
+      .heading_faq{
+      display: flex;
+      align-items: center;
+      padding: 30px 0;
+     }
+     .img_container>img{
+      width: 30px;
+      height: 30px;
+      padding: auto;
+     }
+     .h1_container{
+      margin-left: 20px;
+      color:hsl(292, 42%, 14%)  ;
+     }
+     .question_con{
+      display: flex;
+      justify-content: space-between;
+     }
+     .question{
+      margin-right:10px ;
+     }
+     .title_img{
+      width: 100%;
+     }
+     .container{
+      background-color:hsl(0, 0%, 100%) ;
+      border-radius: 10px;
+      padding: 20px;
+      position: absolute;
+      top: 15%;
+      /* max-width: 700px; */
+     
+
+     }
+@media (min-width:375px){
+     .title_img{
+      height: 273px;
+      background-image: url('./assets/images/background-pattern-mobile.svg');
+
+     }
+     .container{
+      width: 90%;
+      margin: 0 20px;
+
+     }
+    
+    }
+    @media (min-width:1440px){
+      .title_img{
+      height: 320px;
+      background-image: url('./assets/images/background-pattern-desktop.svg');
+
+     }
+     .container{
+      width: 900px;
+
+     }
+     
+    }
+    </style>
+  </head>
+  <body>
+    <div class="title_img">
+      <!-- <img src="./assets/images/background-pattern-mobile.svg" alt=""> -->
+    </div>
+    <div class="container">
+      <div class="heading_faq">
+        <div class="img_container">
+          <img src="./assets/images/icon-star.svg" alt="" />
+        </div>
+        <div class="h1_container"><h1>FAQs</h1></div>
+      </div>
+      <div class="question_con" onclick="display(index=0)">
+        <h3 class="question">
+          What is Frontend Mentor, and how will it help me?
+        </h3>
+        <div class="img_plus">
+          <img src="./assets/images/icon-plus.svg" alt="" class="plus_img" />
+        </div>
+        
+      </div>
+      <p class="para_show"></p>
+      <div class="question_con" onclick="display(index=1)">
+        <h3 class="question">Is Frontend Mentor free?</h3>
+        <div class="img_plus">
+          <img src="./assets/images/icon-plus.svg" alt="" class="plus_img" />
+        </div>
+       
+      </div>
+      <p class="para_show"></p>
+      <div class="question_con" onclick="display(index=2)">
+        <h3 class="question">
+          Can I use Frontend Mentor projects in my portfolio?
+        </h3>
+        <div class="img_plus">
+          <img src="./assets/images/icon-plus.svg" alt="" class="plus_img" />
+        </div>
+        
+      </div>
+      <p class="para_show"></p>
+      <div class="question_con" onclick="display(index=3)">
+        <h3 class="question">
+          How can I get help if I'm stuck on a Frontend Mentor challenge?
+        </h3>
+        <div class="img_plus">
+          <img src="./assets/images/icon-plus.svg" alt="" class="plus_img" />
+        </div>
+     
+      </div>
+      <p class="para_show"></p>
+    </div>
+
+    <script>
+      let arr = Array();
+      arr[0] = ` Frontend Mentor offers realistic coding challenges to help developers improve their 
+  frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+  all levels and ideal for portfolio building.`;
+      arr[1] = ` Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+  option providing access to a range of projects suitable for all skill levels.`;
+      arr[2] = `  Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+  way to showcase your skills to potential employers!`;
+      arr[3] = `  The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+  channel where you can ask questions and seek support from other community members.`;
+      let paraDisplay = document.getElementsByClassName("para_show");
+      let img = document.getElementsByClassName("plus_img");
+      let questions = document.getElementsByClassName("question");
+      function display(index) {
+        console.log(index);
+        if (
+          img[index].getAttribute("src") === "./assets/images/icon-plus.svg"
+        ) {
+          paraDisplay[index].innerHTML = `${arr[index]}`;
+          img[index].setAttribute("src", "./assets/images/icon-minus.svg");
+        } else if (
+          img[index].getAttribute("src") === "./assets/images/icon-minus.svg"
+        ) {
+          img[index].setAttribute("src", "./assets/images/icon-plus.svg");
+          paraDisplay[index].innerHTML = ``;
+        }
+      }
+    </script>
+  </body>
+</html>
